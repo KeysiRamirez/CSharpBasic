@@ -71,23 +71,24 @@ namespace CSharpBasic.Loops
         }
 
         /// <summary>
-        /// 
+        /// Crear un programa que cuente cuántas piezas de hierro de un lote,
+        /// dentro de un rango específico de longitud, son aptas para fabricar perfiles.
         /// </summary>
-        private void BatchPieces() 
+        public void BatchPieces() 
         {
             try
             {
                 // defining the variables
                 int increaser = 1, quantity = 0, qualifiedPieces = 0;
                 decimal height = 0;
-                string enteredNumber = string.Empty;
+                string quantityEnter = string.Empty, heightEntered = string.Empty;
 
                 // Requesting for the height value
-                Console.Write("Input the height: ");
-                enteredNumber = Console.ReadLine();
+                Console.Write("Input the quantity of pieces: ");
+                quantityEnter = Console.ReadLine();
 
                 // Validate if the input is null
-                if (enteredNumber == string.Empty)
+                if (quantityEnter == string.Empty)
                 {
                     Console.WriteLine($"The input cannot be null, you must enter a number!");
                     // allows the user to enter a new number
@@ -95,7 +96,7 @@ namespace CSharpBasic.Loops
                 }
 
                 // Validate if the input if a number
-                if (!int.TryParse(enteredNumber, out quantity))
+                if (!int.TryParse(quantityEnter, out quantity))
                 {
                     Console.WriteLine($"Invalid input entered: {quantity}, you must enter a number!");
 
@@ -105,13 +106,33 @@ namespace CSharpBasic.Loops
 
                 while (increaser <= quantity) 
                 {
+                   // Requesting for the height value
+                    Console.Write($"Input the piece {increaser} height: ");
+                    heightEntered = Console.ReadLine();
 
-                    if (height >= 1.20m && height <= 1.30m) 
+                    // Validate if the input is null
+                    if (heightEntered == string.Empty)
+                    {
+                        Console.WriteLine($"The input cannot be null, you must enter a number!");
+                        // allows the user to enter a new number
+                        continue;
+                    }
+
+                    // Validate if the input if a number
+                    if (!decimal.TryParse(heightEntered, out height))
+                    {
+                        Console.WriteLine($"Invalid input entered: {increaser}, you must enter a number!");
+
+                        // allows the user to enter a new number
+                        continue;
+                    }
+
+                    if (height >= 1.20m && height <= 1.30m)
                     {
                         qualifiedPieces++;
                     }
 
-                    increaser += 1;
+                    increaser++;
                 }
 
                 // Output the quatity of pieces are able to use
