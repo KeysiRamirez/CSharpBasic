@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace CSharpBasic.Loops
 {
@@ -10,14 +11,78 @@ namespace CSharpBasic.Loops
     {
         /// <summary>
         /// Class for: 
-        /// calcular y contar aquellos cuya área excede un valor límite.
-        /// segun un conjunto de datos representando las dimensiones de triángulos, 
+        /// calcular y contar aquellos cuya área excede un valor límite,
+        /// segun un conjunto de datos representando las dimensiones de triángulos.
         /// </summary>
         public void TriangleDimensionsCalculator()
         {
             try
             {
-              // Defining Variables
+                // Defining Variables
+                int triangleBase = 0, limitValue = 0, height = 0, counter = 0, triangleQuantity = 0;
+                string triangleBaseEntered = string.Empty, limitValueEntered = string.Empty, heightEntered = string.Empty;
+                decimal area = 0;
+
+                // Getting the quantity of triangules to calculate
+                Console.Write("Enter the total of triangles to calculate their areas: ");
+                triangleQuantity = int.Parse(Console.ReadLine());
+
+                // Requesting for the limit value
+                Console.Write("Enter the limit area: ");
+                limitValueEntered = Console.ReadLine();
+
+                if (limitValueEntered == null) 
+                { 
+                    Console.WriteLine("The input cannot be null, you must enter a number!");
+                    return;
+                }
+
+                if (!int.TryParse(limitValueEntered, out limitValue))
+                {
+                    Console.WriteLine($"Invalid input entered: {limitValueEntered}");
+                    return;
+                }
+
+                // Requesting for the triangle dimensions
+                for (int i = 1; i <= triangleQuantity; i++) 
+                {
+                    Console.Write($"Enter the triangle {i} base: ");
+                    triangleBaseEntered = Console.ReadLine();
+
+                    // Validate if the triangle base is valid
+                    if (triangleBaseEntered == string.Empty || !int.TryParse(triangleBaseEntered, out triangleBase))
+                    {
+                        Console.WriteLine($"Invalid value entered, you must enter a number!");
+                        // allows the user to enter a new number
+                        i--;
+                        continue;
+                    }
+
+                    // Requesting for the triangle height
+                    Console.Write($"Enter the triangle {i} height: ");
+                    heightEntered = Console.ReadLine();
+
+                    // Validate if the input is valid
+                    if (heightEntered == string.Empty || !int.TryParse(heightEntered, out height))
+                    {
+                        Console.WriteLine($"Invalid value entered, you must enter a number!");
+                        // allows the user to enter a new number
+                        i--;
+                        continue;
+                    }
+
+                    area = ((triangleBase * height) / 2);
+
+                    // Compering the area with the value limit entered
+
+                    if (area > limitValue) 
+                    {
+                        counter++;
+                    }
+
+                }
+
+                Console.Write($"The triangles which exceed of the limit value are: {counter}");
             }
             catch (Exception ex)
             {

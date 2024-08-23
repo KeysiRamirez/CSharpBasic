@@ -1,14 +1,13 @@
 ﻿
 using CSharpBasic.Loops;
-
-//ForLoop forLoop = new ForLoop();
-
+ForLoop forLoop = new ForLoop();
+// forLoop.TriangleDimensionsCalculator();
 //forLoop.LastNumbers();
-//// forLoop.DividerNumbers();
+forLoop.DividerNumbers();
 
-// For Calculate the Summary and Average of a set of numbers
-WhileLoop whileLoop = new WhileLoop();
+//// For Calculate the Summary and Average of a set of numbers
+//WhileLoop whileLoop = new WhileLoop();
 
-//whileLoop.SumAndAverage();
+////whileLoop.SumAndAverage();
 
-whileLoop.BatchPieces();
+//whileLoop.BatchPieces();
