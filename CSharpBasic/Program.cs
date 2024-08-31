@@ -1,9 +1,9 @@
 ﻿
-using CSharpBasic.Loops;
-ForLoop forLoop = new ForLoop();
+//using CSharpBasic.Loops;
+//ForLoop forLoop = new ForLoop();
 // forLoop.TriangleDimensionsCalculator();
 //forLoop.LastNumbers();
-forLoop.DividerNumbers();
+//forLoop.DividerNumbers();
 
 //// For Calculate the Summary and Average of a set of numbers
 //WhileLoop whileLoop = new WhileLoop();
@@ -11,3 +11,13 @@ forLoop.DividerNumbers();
 ////whileLoop.SumAndAverage();
 
 //whileLoop.BatchPieces();
+
+/*
+using CSharpBasic.TriangleArea;
+TriangleArea triangleArea = new TriangleArea();
+triangleArea.TriangleAreaCalculator();
+*/
+
+using CSharpBasic.EmployeeSalary;
+EmployeeSalary employeeSalary = new EmployeeSalary();
+employeeSalary.EmployeeSalaryCalculator();
